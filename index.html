@@ -465,28 +465,31 @@ const variationPhrases = [
 ];
 // =======================================
 
-// --- EVENT LISTENER UNTUK MEMBUAT KASUS ---
+// --- EVENT LISTENER UNTUK MEMBUAT KASUS (VERSI DIPERBARUI) ---
 generateBtn.addEventListener('click', async () => {
-    // ... (sisa kode)
-        generateBtn.addEventListener('click', async () => {
     const selectedTopic = topicSelect.value;
     
     // Tampilkan loading & reset tampilan
     loadingSpinner.classList.remove('hidden');
     caseOutput.classList.add('hidden');
-    showDiscussionBtn.classList.add('hidden'); // Sembunyikan tombol pembahasan lama
-    discussionOutput.classList.add('hidden'); // Sembunyikan pembahasan lama
+    showDiscussionBtn.classList.add('hidden');
+    discussionOutput.classList.add('hidden');
     caseOutput.innerHTML = '';
     discussionOutput.innerHTML = '';
-    currentCaseText = ''; // Kosongkan kasus sebelumnya
+    currentCaseText = '';
     generateBtn.disabled = true;
     generateBtn.innerHTML = `<div class="spinner h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div> Memproses...`;
     
-    const prompt = `Buatkan sebuah skenario kasus klinis (vignette) yang menantang untuk seorang mahasiswa kedokteran mengenai topik ${selectedTopic}. Formatnya harus sebagai berikut dalam Bahasa Indonesia: 1. **Presentasi Pasien:** Jelaskan usia, jenis kelamin, dan keluhan utama pasien. 2. **Riwayat Penyakit Sekarang:** Detailkan perkembangan gejala secara kronologis. 3. **Riwayat Penyakit Dahulu:** Sebutkan riwayat medis yang relevan (misal: hipertensi, diabetes) dan riwayat sosial (merokok, alkohol). 4. **Pemeriksaan Fisik:** Berikan temuan kunci dari pemeriksaan fisik (tanda-tanda vital, inspeksi, palpasi, auskultasi, dll.). 5. **Pertanyaan untuk Mahasiswa:** Akhiri dengan pertanyaan seperti 'Apa diagnosis banding utama Anda dan pemeriksaan penunjang apa yang akan Anda sarankan?' PENTING: JANGAN sebutkan diagnosis akhir dalam respons ini. Buatlah kasus ini realistis, informatif, dan gunakan terminologi medis yang sesuai.`;
+    // === BARIS BARU 1: Pilih satu frasa variasi secara acak ===
+    const randomVariation = variationPhrases[Math.floor(Math.random() * variationPhrases.length)];
+
+    // === BARIS BARU 2: Masukkan frasa acak ke dalam prompt ===
+    const prompt = `Buatkan sebuah skenario kasus klinis (vignette) yang menantang untuk seorang mahasiswa kedokteran mengenai topik ${selectedTopic}, khususnya kasus ${randomVariation}. Formatnya harus sebagai berikut dalam Bahasa Indonesia: 1. **Presentasi Pasien:** Jelaskan usia, jenis kelamin, dan keluhan utama pasien. 2. **Riwayat Penyakit Sekarang:** Detailkan perkembangan gejala secara kronologis. 3. **Riwayat Penyakit Dahulu:** Sebutkan riwayat medis yang relevan (misal: hipertensi, diabetes) dan riwayat sosial (merokok, alkohol). 4. **Pemeriksaan Fisik:** Berikan temuan kunci dari pemeriksaan fisik (tanda-tanda vital, inspeksi, palpasi, auskultasi, dll.). 5. **Pertanyaan untuk Mahasiswa:** Akhiri dengan pertanyaan seperti 'Apa diagnosis banding utama Anda dan pemeriksaan penunjang apa yang akan Anda sarankan?' PENTING: JANGAN sebutkan diagnosis akhir dalam respons ini. Buatlah kasus ini realistis, informatif, dan gunakan terminologi medis yang sesuai.`;
     
     const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
 
     try {
+        // ... sisa dari kode try...catch...finally tidak perlu diubah ...
         const response = await fetch(proxyApiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -499,15 +502,10 @@ generateBtn.addEventListener('click', async () => {
         
         if (result.candidates && result.candidates[0]?.content?.parts?.[0]) {
             const rawText = result.candidates[0].content.parts[0].text;
-            
-            // Simpan teks kasus untuk permintaan pembahasan nanti
             currentCaseText = rawText; 
-            
             const formattedText = rawText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
             caseOutput.innerHTML = formattedText;
             caseOutput.classList.remove('hidden');
-            
-            // Tampilkan tombol pembahasan
             showDiscussionBtn.classList.remove('hidden'); 
         } else {
             throw new Error('Struktur respons API tidak valid.');

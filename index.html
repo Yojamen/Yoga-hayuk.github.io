@@ -436,7 +436,8 @@
             caseOutput.innerHTML = '';
             discussionOutput.innerHTML = '';
             currentCaseText = '';
-            generateBtn.disabled = true;
+            
+            generateBtn.disabled = true; 
             generateBtn.innerHTML = `<div class="spinner h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div> Memproses...`;
             
             const randomVariation = variationPhrases[Math.floor(Math.random() * variationPhrases.length)];
@@ -467,8 +468,19 @@
                 caseOutput.classList.remove('hidden');
             } finally {
                 loadingSpinner.classList.add('hidden');
-                generateBtn.disabled = false;
-                generateBtn.textContent = 'Buat Kasus';
+                
+                let countdown = 10;
+                generateBtn.textContent = `Tunggu ${countdown}s`;
+                
+                const interval = setInterval(() => {
+                    countdown--;
+                    generateBtn.textContent = `Tunggu ${countdown}s`;
+                    if (countdown <= 0) {
+                        clearInterval(interval);
+                        generateBtn.disabled = false;
+                        generateBtn.textContent = 'Buat Kasus';
+                    }
+                }, 1000);
             }
         });
 

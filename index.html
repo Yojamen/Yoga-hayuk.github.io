@@ -408,50 +408,70 @@
         });
 
         // --- Gemini API Integration for AI Case Simulator ---
-        const generateBtn = document.getElementById('generate-case-btn');
-        const topicSelect = document.getElementById('case-topic');
-        const caseOutput = document.getElementById('case-output');
-        const loadingSpinner = document.getElementById('loading-spinner');
-        const geminiApiKey = ""; // API key is handled by the execution environment.
-        const geminiApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${geminiApiKey}`;
+const generateBtn = document.getElementById('generate-case-btn');
+const topicSelect = document.getElementById('case-topic');
+const caseOutput = document.getElementById('case-output');
+const loadingSpinner = document.getElementById('loading-spinner');
 
-        generateBtn.addEventListener('click', async () => {
-            const selectedTopic = topicSelect.value;
-            loadingSpinner.classList.remove('hidden');
-            caseOutput.classList.add('hidden');
-            caseOutput.innerHTML = '';
-            generateBtn.disabled = true;
-            generateBtn.innerHTML = `<div class="spinner h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div> Memproses...`;
-            const prompt = `Buatkan sebuah skenario kasus klinis (vignette) yang menantang untuk seorang mahasiswa kedokteran mengenai topik ${selectedTopic}. Formatnya harus sebagai berikut dalam Bahasa Indonesia: 1. **Presentasi Pasien:** Jelaskan usia, jenis kelamin, dan keluhan utama pasien. 2. **Riwayat Penyakit Sekarang:** Detailkan perkembangan gejala secara kronologis. 3. **Riwayat Penyakit Dahulu:** Sebutkan riwayat medis yang relevan (misal: hipertensi, diabetes) dan riwayat sosial (merokok, alkohol). 4. **Pemeriksaan Fisik:** Berikan temuan kunci dari pemeriksaan fisik (tanda-tanda vital, inspeksi, palpasi, auskultasi, dll.). 5. **Pertanyaan untuk Mahasiswa:** Akhiri dengan pertanyaan seperti 'Apa diagnosis banding utama Anda dan pemeriksaan penunjang apa yang akan Anda sarankan?' PENTING: JANGAN sebutkan diagnosis akhir dalam respons ini. Buatlah kasus ini realistis, informatif, dan gunakan terminologi medis yang sesuai.`;
-            const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
+// URL proxy yang kita buat. Vercel akan secara otomatis mengarahkannya ke file api/gemini.js
+const proxyApiUrl = '/api/gemini'; 
 
-            try {
-                const response = await fetch(geminiApiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                if (!response.ok) throw new Error(`API request failed with status ${response.status}`);
-                const result = await response.json();
-                if (result.candidates && result.candidates[0]?.content?.parts?.[0]) {
-                    const rawText = result.candidates[0].content.parts[0].text;
-                    const formattedText = rawText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
-                    caseOutput.innerHTML = formattedText;
-                    caseOutput.classList.remove('hidden');
-                } else {
-                    throw new Error('Unexpected API response structure');
-                }
-            } catch (error) {
-                console.error('Error calling Gemini API:', error);
-                caseOutput.innerHTML = `<p class="text-red-500">Gagal terhubung dengan AI. Periksa koneksi internet Anda. Error: ${error.message}</p>`;
-                caseOutput.classList.remove('hidden');
-            } finally {
-                loadingSpinner.classList.add('hidden');
-                generateBtn.disabled = false;
-                generateBtn.textContent = 'Buat Kasus';
-            }
+generateBtn.addEventListener('click', async () => {
+    const selectedTopic = topicSelect.value;
+    loadingSpinner.classList.remove('hidden');
+    caseOutput.classList.add('hidden');
+    caseOutput.innerHTML = '';
+    generateBtn.disabled = true;
+    generateBtn.innerHTML = `<div class="spinner h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div> Memproses...`;
+    
+    // Prompt tetap sama
+    const prompt = `Buatkan sebuah skenario kasus klinis (vignette) yang menantang untuk seorang mahasiswa kedokteran mengenai topik ${selectedTopic}. Formatnya harus sebagai berikut dalam Bahasa Indonesia: 1. **Presentasi Pasien:** Jelaskan usia, jenis kelamin, dan keluhan utama pasien. 2. **Riwayat Penyakit Sekarang:** Detailkan perkembangan gejala secara kronologis. 3. **Riwayat Penyakit Dahulu:** Sebutkan riwayat medis yang relevan (misal: hipertensi, diabetes) dan riwayat sosial (merokok, alkohol). 4. **Pemeriksaan Fisik:** Berikan temuan kunci dari pemeriksaan fisik (tanda-tanda vital, inspeksi, palpasi, auskultasi, dll.). 5. **Pertanyaan untuk Mahasiswa:** Akhiri dengan pertanyaan seperti 'Apa diagnosis banding utama Anda dan pemeriksaan penunjang apa yang akan Anda sarankan?' PENTING: JANGAN sebutkan diagnosis akhir dalam respons ini. Buatlah kasus ini realistis, informatif, dan gunakan terminologi medis yang sesuai.`;
+    
+    // Payload tetap sama
+    const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
+
+    try {
+        // Panggil proxy kita, bukan API Gemini langsung
+        const response = await fetch(proxyApiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload) // Kirim payload ke proxy kita
         });
 
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.error('Error dari server proxy:', errorData);
+            throw new Error(`API request failed with status ${response.status}`);
+        }
+        
+        const result = await response.json();
+        
+        if (result.candidates && result.candidates[0]?.content?.parts?.[0]) {
+            const rawText = result.candidates[0].content.parts[0].text;
+            // Gunakan regex untuk mengganti markdown bold (**) dengan tag <strong>
+            // dan newline (\n) dengan tag <br> agar formatnya bagus di HTML.
+            const formattedText = rawText
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\n/g, '<br>');
+            caseOutput.innerHTML = formattedText;
+            caseOutput.classList.remove('hidden');
+        } else {
+            // Jika struktur respons dari Gemini tidak sesuai harapan
+            console.error('Unexpected API response structure:', result);
+            throw new Error('Struktur respons API tidak valid.');
+        }
+    } catch (error) {
+        console.error('Error calling proxy API:', error);
+        caseOutput.innerHTML = `<p class="text-red-500">Gagal terhubung dengan AI. Silakan coba lagi nanti. Error: ${error.message}</p>`;
+        caseOutput.classList.remove('hidden');
+    } finally {
+        loadingSpinner.classList.add('hidden');
+        generateBtn.disabled = false;
+        generateBtn.textContent = 'Buat Kasus';
+    }
+});
         // --- Google Sheets API Integration for Registration Form ---
         const form = document.getElementById('registration-form');
         const submitButton = document.getElementById('submit-button');

@@ -12,15 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* Custom styles to use the Inter font */
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* Smooth scrolling behavior */
         html {
             scroll-behavior: smooth;
         }
-        /* Simple spinner animation */
         .spinner {
             border-top-color: transparent;
             animation: spin 1s linear infinite;
@@ -187,61 +184,42 @@
                     <h2 class="text-3xl font-bold text-gray-900">✨ Coba AI Case Simulator Kami</h2>
                     <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Asah kemampuan diagnosis Anda dengan skenario kasus klinis yang dibuat oleh AI. Pilih topik dan mulailah!</p>
                 </div>
-               <div class="mt-12 max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
-    <div class="flex flex-col sm:flex-row gap-4">
-        <select id="case-topic" class="w-full sm:w-2/3 bg-gray-100 border-2 border-gray-200 rounded-lg p-3 focus:outline-none focus:border-blue-500 transition">
-            <option value="Dermatologi">Dermatologi</option>
-            <option value="Endokrinologi">Endokrinologi</option>
-            <option value="Gastroenterologi">Gastroenterologi</option>
-            <option value="Ginjal & Hipertensi">Ginjal & Hipertensi</option>
-            <option value="Kardiologi">Kardiologi</option>
-            <option value="Neurologi">Neurologi</option>
-            <option value="Obstetri & Ginekologi">Obstetri & Ginekologi</option>
-            <option value="Oftalmologi">Oftalmologi (Mata)</option>
-            <option value="Pediatri">Pediatri</option>
-            <option value="Penyakit Dalam">Penyakit Dalam</option>
-            <option value="Pulmonologi">Pulmonologi (Paru)</option>
-            <option value="THT">THT (Telinga, Hidung, Tenggorokan)</option>
-        </select>
-        
-        <button id="generate-case-btn" class="w-full sm:w-1/3 bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-300 flex items-center justify-center">
-            Buat Kasus
-        </button>
-    </div>
-    
-    <div id="loading-spinner" class="hidden text-center py-8">
-        <div class="spinner rounded-full h-12 w-12 border-4 border-blue-200 border-t-blue-600 mx-auto"></div>
-        <p class="mt-4 text-gray-600">AI sedang memproses...</p>
-    </div>
-
-    <div id="case-output" class="mt-8 p-6 bg-blue-50 rounded-lg border-l-4 border-blue-500 hidden prose max-w-none">
-        </div>
-
-    <div id="discussion-controls" class="text-center mt-4">
-        <button id="show-discussion-btn" class="hidden bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition duration-300">
-            Lihat Pembahasan
-        </button>
-    </div>
-
-    <div id="discussion-output" class="hidden mt-6 p-6 bg-green-50 rounded-lg border-l-4 border-green-500 prose max-w-none">
-        </div>
-                   <p class="mt-4 text-xs text-gray-500 text-center">
-                          *Fitur ini didukung oleh Gemini AI dan ditujukan untuk tujuan edukasi saja. Ini bukan merupakan saran medis.
-                        </p>
-
-   
-</div>
-                    
+                <div class="mt-12 max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <select id="case-topic" class="w-full sm:w-2/3 bg-gray-100 border-2 border-gray-200 rounded-lg p-3 focus:outline-none focus:border-blue-500 transition">
+                            <option value="Dermatologi">Dermatologi</option>
+                            <option value="Endokrinologi">Endokrinologi</option>
+                            <option value="Gastroenterologi">Gastroenterologi</option>
+                            <option value="Ginjal & Hipertensi">Ginjal & Hipertensi</option>
+                            <option value="Kardiologi">Kardiologi</option>
+                            <option value="Neurologi">Neurologi</option>
+                            <option value="Obstetri & Ginekologi">Obstetri & Ginekologi</option>
+                            <option value="Oftalmologi">Oftalmologi (Mata)</option>
+                            <option value="Pediatri">Pediatri</option>
+                            <option value="Penyakit Dalam">Penyakit Dalam</option>
+                            <option value="Pulmonologi">Pulmonologi (Paru)</option>
+                            <option value="THT">THT (Telinga, Hidung, Tenggorokan)</option>
+                        </select>
+                        <button id="generate-case-btn" class="w-full sm:w-1/3 bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-300 flex items-center justify-center">
+                            Buat Kasus
+                        </button>
+                    </div>
                     <div id="loading-spinner" class="hidden text-center py-8">
                         <div class="spinner rounded-full h-12 w-12 border-4 border-blue-200 border-t-blue-600 mx-auto"></div>
-                        <p class="mt-4 text-gray-600">AI sedang mempersiapkan kasus untuk Anda...</p>
+                        <p class="mt-4 text-gray-600">AI sedang memproses...</p>
                     </div>
-
                     <div id="case-output" class="mt-8 p-6 bg-blue-50 rounded-lg border-l-4 border-blue-500 hidden prose max-w-none">
                         </div>
-                     <p class="mt-4 text-xs text-gray-500 text-center">
-                          *Fitur ini didukung oleh Gemini AI dan ditujukan untuk tujuan edukasi saja. Ini bukan merupakan saran medis.
-                        </p>
+                    <div id="discussion-controls" class="text-center mt-4">
+                        <button id="show-discussion-btn" class="hidden bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition duration-300">
+                            Lihat Pembahasan
+                        </button>
+                    </div>
+                    <div id="discussion-output" class="hidden mt-6 p-6 bg-green-50 rounded-lg border-l-4 border-green-500 prose max-w-none">
+                        </div>
+                    <p class="mt-4 text-xs text-gray-500 text-center">
+                        *Fitur ini didukung oleh Gemini AI dan ditujukan untuk tujuan edukasi saja. Ini bukan merupakan saran medis.
+                    </p>
                 </div>
             </div>
         </section>
@@ -412,212 +390,170 @@
                 </div>
             </div>
             <div class="mt-8 border-t border-gray-700 pt-6 text-center text-gray-500">
-                <p>&copy; 2025 White Coat. Seluruh Hak Cipta.</p>
+                <p>© 2025 White Coat. Seluruh Hak Cipta.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // --- Mobile Menu Toggle ---
+        // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
 
-       // --- KODE JAVASCRIPT GEMINI YANG SUDAH DIPERBARUI ---
+        // Gemini AI Simulator Logic
+        const generateBtn = document.getElementById('generate-case-btn');
+        const topicSelect = document.getElementById('case-topic');
+        const caseOutput = document.getElementById('case-output');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const showDiscussionBtn = document.getElementById('show-discussion-btn');
+        const discussionOutput = document.getElementById('discussion-output');
+        const proxyApiUrl = '/api/gemini';
+        let currentCaseText = '';
 
-// Ambil elemen dari HTML
-const generateBtn = document.getElementById('generate-case-btn');
-const topicSelect = document.getElementById('case-topic');
-const caseOutput = document.getElementById('case-output');
-const loadingSpinner = document.getElementById('loading-spinner');
+        const variationPhrases = [
+            'dengan presentasi klasik',
+            'dengan gejala yang tidak biasa (atipikal)',
+            'pada pasien usia muda',
+            'pada pasien usia lanjut dengan komorbiditas',
+            'yang sering muncul di unit gawat darurat',
+            'yang menunjukkan komplikasi dari suatu penyakit umum',
+            'yang memerlukan diagnosis cepat',
+            'dengan riwayat sosial yang signifikan (misalnya perokok berat)',
+            'yang meniru kondisi dari sistem organ lain',
+            'terkait dengan kondisi genetik',
+            'pada pasien wanita hamil'
+        ];
 
-// Elemen baru untuk pembahasan
-const showDiscussionBtn = document.getElementById('show-discussion-btn');
-const discussionOutput = document.getElementById('discussion-output');
-
-// URL proxy (tidak berubah)
-const proxyApiUrl = '/api/gemini'; 
-
-// Variabel untuk menyimpan teks kasus yang aktif
-let currentCaseText = '';
-
-// ===== TAMBAHKAN KODE DI BAWAH INI =====
-// Koleksi frasa untuk membuat variasi kasus
-const variationPhrases = [
-    'dengan presentasi klasik',
-    'dengan gejala yang tidak biasa (atipikal)',
-    'pada pasien usia muda',
-    'pada pasien usia lanjut dengan komorbiditas',
-    'yang sering muncul di unit gawat darurat',
-    'yang menunjukkan komplikasi dari suatu penyakit umum',
-    'yang memerlukan diagnosis cepat',
-    'dengan riwayat sosial yang signifikan (misalnya perokok berat)',
-    'yang meniru kondisi dari sistem organ lain',
-    'terkait dengan kondisi genetik',
-    'pada pasien wanita hamil'
-];
-// =======================================
-
-// --- EVENT LISTENER UNTUK MEMBUAT KASUS (VERSI DIPERBARUI) ---
-generateBtn.addEventListener('click', async () => {
-    const selectedTopic = topicSelect.value;
-    
-    // Tampilkan loading & reset tampilan
-    loadingSpinner.classList.remove('hidden');
-    caseOutput.classList.add('hidden');
-    showDiscussionBtn.classList.add('hidden');
-    discussionOutput.classList.add('hidden');
-    caseOutput.innerHTML = '';
-    discussionOutput.innerHTML = '';
-    currentCaseText = '';
-    generateBtn.disabled = true;
-    generateBtn.innerHTML = `<div class="spinner h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div> Memproses...`;
-    
-    // === BARIS BARU 1: Pilih satu frasa variasi secara acak ===
-    const randomVariation = variationPhrases[Math.floor(Math.random() * variationPhrases.length)];
-
-    // === BARIS BARU 2: Masukkan frasa acak ke dalam prompt ===
-    const prompt = `Buatkan sebuah skenario kasus klinis (vignette) yang menantang untuk seorang mahasiswa kedokteran mengenai topik ${selectedTopic}, khususnya kasus ${randomVariation}. Formatnya harus sebagai berikut dalam Bahasa Indonesia: 1. **Presentasi Pasien:** Jelaskan usia, jenis kelamin, dan keluhan utama pasien. 2. **Riwayat Penyakit Sekarang:** Detailkan perkembangan gejala secara kronologis. 3. **Riwayat Penyakit Dahulu:** Sebutkan riwayat medis yang relevan (misal: hipertensi, diabetes) dan riwayat sosial (merokok, alkohol). 4. **Pemeriksaan Fisik:** Berikan temuan kunci dari pemeriksaan fisik (tanda-tanda vital, inspeksi, palpasi, auskultasi, dll.). 5. **Pertanyaan untuk Mahasiswa:** Akhiri dengan pertanyaan seperti 'Apa diagnosis banding utama Anda dan pemeriksaan penunjang apa yang akan Anda sarankan?' PENTING: JANGAN sebutkan diagnosis akhir dalam respons ini. Buatlah kasus ini realistis, informatif, dan gunakan terminologi medis yang sesuai.`;
-    
-    const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
-
-    try {
-        // ... sisa dari kode try...catch...finally tidak perlu diubah ...
-        const response = await fetch(proxyApiUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-        });
-
-        if (!response.ok) throw new Error(`Gagal memuat data dari server.`);
-        
-        const result = await response.json();
-        
-        if (result.candidates && result.candidates[0]?.content?.parts?.[0]) {
-            const rawText = result.candidates[0].content.parts[0].text;
-            currentCaseText = rawText; 
-            const formattedText = rawText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
-            caseOutput.innerHTML = formattedText;
-            caseOutput.classList.remove('hidden');
-            showDiscussionBtn.classList.remove('hidden'); 
-        } else {
-            throw new Error('Struktur respons API tidak valid.');
-        }
-    } catch (error) {
-        console.error('Error calling proxy API for case:', error);
-        caseOutput.innerHTML = `<p class="text-red-500">Gagal terhubung dengan AI. Periksa koneksi Anda dan coba lagi. Error: ${error.message}</p>`;
-        caseOutput.classList.remove('hidden');
-    } finally {
-        loadingSpinner.classList.add('hidden');
-        generateBtn.disabled = false;
-        generateBtn.textContent = 'Buat Kasus';
-    }
-});
-
-// --- EVENT LISTENER BARU UNTUK MELIHAT PEMBAHASAN ---
-showDiscussionBtn.addEventListener('click', async () => {
-    if (!currentCaseText) {
-        alert('Silakan buat kasus terlebih dahulu.');
-        return;
-    }
-
-    // Tampilkan loading & disable tombol
-    loadingSpinner.classList.remove('hidden');
-    showDiscussionBtn.disabled = true;
-    showDiscussionBtn.textContent = 'Memuat Pembahasan...';
-    
-    // Buat prompt baru yang menyertakan kasus sebelumnya
-    const discussionPrompt = `Berdasarkan skenario kasus klinis berikut: "${currentCaseText}". Berikanlah pembahasan yang komprehensif dalam Bahasa Indonesia dengan format: 1. **Diagnosis Banding (Differential Diagnosis):** Jelaskan beberapa kemungkinan diagnosis beserta alasan singkatnya. 2. **Diagnosis Kerja Paling Mungkin:** Sebutkan satu diagnosis yang paling mungkin dan justifikasinya. 3. **Pemeriksaan Penunjang:** Sarankan pemeriksaan laboratorium, radiologi, atau lainnya untuk mengkonfirmasi diagnosis. 4. **Rencana Tatalaksana Awal:** Jelaskan langkah-langkah penanganan awal untuk pasien ini.`;
-    
-    const payload = { contents: [{ role: "user", parts: [{ text: discussionPrompt }] }] };
-
-    try {
-        const response = await fetch(proxyApiUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-        });
-
-        if (!response.ok) throw new Error('Gagal memuat pembahasan dari server.');
-
-        const result = await response.json();
-
-        if (result.candidates && result.candidates[0]?.content?.parts?.[0]) {
-            const rawText = result.candidates[0].content.parts[0].text;
-            const formattedText = rawText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
-            discussionOutput.innerHTML = formattedText;
-            discussionOutput.classList.remove('hidden');
+        generateBtn.addEventListener('click', async () => {
+            const selectedTopic = topicSelect.value;
+            loadingSpinner.classList.remove('hidden');
+            caseOutput.classList.add('hidden');
+            showDiscussionBtn.classList.add('hidden');
+            discussionOutput.classList.add('hidden');
+            caseOutput.innerHTML = '';
+            discussionOutput.innerHTML = '';
+            currentCaseText = '';
+            generateBtn.disabled = true;
+            generateBtn.innerHTML = `<div class="spinner h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div> Memproses...`;
             
-            // Sembunyikan tombol setelah pembahasan muncul agar tidak diklik lagi
-            showDiscussionBtn.classList.add('hidden'); 
-        } else {
-            throw new Error('Struktur respons API pembahasan tidak valid.');
-        }
-    } catch (error) {
-        console.error('Error calling proxy API for discussion:', error);
-        discussionOutput.innerHTML = `<p class="text-red-500">Gagal memuat pembahasan. Silakan coba lagi. Error: ${error.message}</p>`;
-        discussionOutput.classList.remove('hidden');
-    } finally {
-        loadingSpinner.classList.add('hidden');
-        showDiscussionBtn.disabled = false;
-        showDiscussionBtn.textContent = 'Lihat Pembahasan';
-    }
-});
-       // --- Google Sheets API Integration for Registration Form ---
-const form = document.getElementById('registration-form');
-const submitButton = document.getElementById('submit-button');
-const formMessage = document.getElementById('form-message');
+            const randomVariation = variationPhrases[Math.floor(Math.random() * variationPhrases.length)];
+            const prompt = `Buatkan sebuah skenario kasus klinis (vignette) yang menantang untuk seorang mahasiswa kedokteran mengenai topik ${selectedTopic}, khususnya kasus ${randomVariation}. Formatnya harus sebagai berikut dalam Bahasa Indonesia: 1. **Presentasi Pasien:** Jelaskan usia, jenis kelamin, dan keluhan utama pasien. 2. **Riwayat Penyakit Sekarang:** Detailkan perkembangan gejala secara kronologis. 3. **Riwayat Penyakit Dahulu:** Sebutkan riwayat medis yang relevan (misal: hipertensi, diabetes) dan riwayat sosial (merokok, alkohol). 4. **Pemeriksaan Fisik:** Berikan temuan kunci dari pemeriksaan fisik (tanda-tanda vital, inspeksi, palpasi, auskultasi, dll.). 5. **Pertanyaan untuk Mahasiswa:** Akhiri dengan pertanyaan seperti 'Apa diagnosis banding utama Anda dan pemeriksaan penunjang apa yang akan Anda sarankan?' PENTING: JANGAN sebutkan diagnosis akhir dalam respons ini. Buatlah kasus ini realistis, informatif, dan gunakan terminologi medis yang sesuai.`;
+            const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
 
-// !!! PENTING: Ganti URL di bawah ini dengan URL Web App dari Google Apps Script Anda.
-const googleAppScriptUrl = 'https://script.google.com/macros/s/AKfycbw6KFos2HOaVb6zE718DBuSjedLR5PDN-5e_pOVo-PAwtvVneVHgMz5R_mgGEGWR10A/exec';
-
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    submitButton.disabled = true;
-    submitButton.innerHTML = `<div class="spinner h-5 w-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin mr-2"></div> Mengirim...`;
-    formMessage.classList.add('hidden');
-
-    // Ambil data dari form dan ubah ke format JSON
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-
-    try {
-        const response = await fetch(googleAppScriptUrl, {
-            method: 'POST',
-            // Gunakan 'cors' agar bisa menerima respons dari server
-            mode: 'cors', 
-            // Hapus header Content-Type, browser akan mengaturnya otomatis saat redirect
-            // dan Apps Script akan menanganinya
-            redirect: 'follow', 
-            body: JSON.stringify(data)
+            try {
+                const response = await fetch(proxyApiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) throw new Error(`Gagal memuat data dari server.`);
+                const result = await response.json();
+                if (result.candidates && result.candidates[0]?.content?.parts?.[0]) {
+                    const rawText = result.candidates[0].content.parts[0].text;
+                    currentCaseText = rawText; 
+                    const formattedText = rawText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+                    caseOutput.innerHTML = formattedText;
+                    caseOutput.classList.remove('hidden');
+                    showDiscussionBtn.classList.remove('hidden'); 
+                } else {
+                    throw new Error('Struktur respons API tidak valid.');
+                }
+            } catch (error) {
+                console.error('Error calling proxy API for case:', error);
+                caseOutput.innerHTML = `<p class="text-red-500">Gagal terhubung dengan AI. Periksa koneksi Anda dan coba lagi. Error: ${error.message}</p>`;
+                caseOutput.classList.remove('hidden');
+            } finally {
+                loadingSpinner.classList.add('hidden');
+                generateBtn.disabled = false;
+                generateBtn.textContent = 'Buat Kasus';
+            }
         });
 
-        // Cek apakah response dari server sukses
-        const result = await response.json();
-        
-        if (result.result === "success") {
-            formMessage.innerHTML = '<strong>Pendaftaran Berhasil!</strong> Tim kami akan segera menghubungi Anda.';
-            formMessage.className = 'p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-100';
-            formMessage.classList.remove('hidden');
-            form.reset();
-        } else {
-            // Tampilkan error jika ada masalah di Apps Script
-            throw new Error(result.error || 'Terjadi kesalahan di server.');
-        }
+        showDiscussionBtn.addEventListener('click', async () => {
+            if (!currentCaseText) {
+                alert('Silakan buat kasus terlebih dahulu.');
+                return;
+            }
+            loadingSpinner.classList.remove('hidden');
+            showDiscussionBtn.disabled = true;
+            showDiscussionBtn.textContent = 'Memuat Pembahasan...';
+            
+            const discussionPrompt = `Berdasarkan skenario kasus klinis berikut: "${currentCaseText}". Berikanlah pembahasan yang komprehensif dalam Bahasa Indonesia dengan format: 1. **Diagnosis Banding (Differential Diagnosis):** Jelaskan beberapa kemungkinan diagnosis beserta alasan singkatnya. 2. **Diagnosis Kerja Paling Mungkin:** Sebutkan satu diagnosis yang paling mungkin dan justifikasinya. 3. **Pemeriksaan Penunjang:** Sarankan pemeriksaan laboratorium, radiologi, atau lainnya untuk mengkonfirmasi diagnosis. 4. **Rencana Tatalaksana Awal:** Jelaskan langkah-langkah penanganan awal untuk pasien ini.`;
+            const payload = { contents: [{ role: "user", parts: [{ text: discussionPrompt }] }] };
 
-    } catch (error) {
-        console.error('Error submitting to Google Sheets:', error);
-        formMessage.innerHTML = `<strong>Pendaftaran Gagal.</strong> Terjadi kesalahan: ${error.message}`;
-        formMessage.className = 'p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-100';
-        formMessage.classList.remove('hidden');
-    } finally {
-        submitButton.disabled = false;
-        submitButton.textContent = 'Kirim Pendaftaran';
-    }
-});
+            try {
+                const response = await fetch(proxyApiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) throw new Error('Gagal memuat pembahasan dari server.');
+                const result = await response.json();
+                if (result.candidates && result.candidates[0]?.content?.parts?.[0]) {
+                    const rawText = result.candidates[0].content.parts[0].text;
+                    const formattedText = rawText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+                    discussionOutput.innerHTML = formattedText;
+                    discussionOutput.classList.remove('hidden');
+                    showDiscussionBtn.classList.add('hidden'); 
+                } else {
+                    throw new Error('Struktur respons API pembahasan tidak valid.');
+                }
+            } catch (error) {
+                console.error('Error calling proxy API for discussion:', error);
+                discussionOutput.innerHTML = `<p class="text-red-500">Gagal memuat pembahasan. Silakan coba lagi. Error: ${error.message}</p>`;
+                discussionOutput.classList.remove('hidden');
+            } finally {
+                loadingSpinner.classList.add('hidden');
+                showDiscussionBtn.disabled = false;
+                showDiscussionBtn.textContent = 'Lihat Pembahasan';
+            }
+        });
+
+        // Google Sheets API Integration for Registration Form
+        const form = document.getElementById('registration-form');
+        const submitButton = document.getElementById('submit-button');
+        const formMessage = document.getElementById('form-message');
+        const googleAppScriptUrl = 'https://script.google.com/macros/s/AKfycbw6KFos2HOaVb6zE718DBuSjedLR5PDN-5e_pOVo-PAwtvVneVHgMz5R_mgGEGWR10A/exec';
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitButton.disabled = true;
+            submitButton.innerHTML = `<div class="spinner h-5 w-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin mr-2"></div> Mengirim...`;
+            formMessage.classList.add('hidden');
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch(googleAppScriptUrl, {
+                    method: 'POST',
+                    mode: 'cors',
+                    redirect: 'follow',
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                
+                if (result.result === "success") {
+                    formMessage.innerHTML = '<strong>Pendaftaran Berhasil!</strong> Tim kami akan segera menghubungi Anda.';
+                    formMessage.className = 'p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-100';
+                    formMessage.classList.remove('hidden');
+                    form.reset();
+                } else {
+                    throw new Error(result.error || 'Terjadi kesalahan di server.');
+                }
+            } catch (error) {
+                console.error('Error submitting to Google Sheets:', error);
+                formMessage.innerHTML = `<strong>Pendaftaran Gagal.</strong> Terjadi kesalahan: ${error.message}`;
+                formMessage.className = 'p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-100';
+                formMessage.classList.remove('hidden');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Kirim Pendaftaran';
+            }
+        });
     </script>
 </body>
 </html>

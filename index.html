@@ -203,6 +203,7 @@
             <option value="Pulmonologi">Pulmonologi (Paru)</option>
             <option value="THT">THT (Telinga, Hidung, Tenggorokan)</option>
         </select>
+        
         <button id="generate-case-btn" class="w-full sm:w-1/3 bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-300 flex items-center justify-center">
             Buat Kasus
         </button>
@@ -442,7 +443,32 @@ const proxyApiUrl = '/api/gemini';
 let currentCaseText = '';
 
 // --- EVENT LISTENER UNTUK MEMBUAT KASUS ---
+// ... (Kode untuk elemen baru pembahasan)
+
+// Variabel untuk menyimpan teks kasus yang aktif
+let currentCaseText = '';
+
+// ===== TAMBAHKAN KODE DI BAWAH INI =====
+// Koleksi frasa untuk membuat variasi kasus
+const variationPhrases = [
+    'dengan presentasi klasik',
+    'dengan gejala yang tidak biasa (atipikal)',
+    'pada pasien usia muda',
+    'pada pasien usia lanjut dengan komorbiditas',
+    'yang sering muncul di unit gawat darurat',
+    'yang menunjukkan komplikasi dari suatu penyakit umum',
+    'yang memerlukan diagnosis cepat',
+    'dengan riwayat sosial yang signifikan (misalnya perokok berat)',
+    'yang meniru kondisi dari sistem organ lain',
+    'terkait dengan kondisi genetik',
+    'pada pasien wanita hamil'
+];
+// =======================================
+
+// --- EVENT LISTENER UNTUK MEMBUAT KASUS ---
 generateBtn.addEventListener('click', async () => {
+    // ... (sisa kode)
+        generateBtn.addEventListener('click', async () => {
     const selectedTopic = topicSelect.value;
     
     // Tampilkan loading & reset tampilan

@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>White Coat - Bimbingan Belajar Kedokteran</title>
     
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=aspect-ratio"></script>
     
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -34,28 +32,29 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Header Section -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-blue-600">White Coat</a>
+            <a href="#" class="flex items-center space-x-3">
+                <img src="assets/Logo-Whitecoat.png" alt="Logo White Coat" class="h-8 w-auto">
+                <span class="text-2xl font-bold text-blue-600">White Coat</span>
+            </a>
             <div class="hidden md:flex items-center space-x-6">
-                <a href="#program" class="text-gray-600 hover:text-blue-600 transition duration-300">Program Kami</a>
+                <a href="#program" class="text-gray-600 hover:text-blue-600 transition duration-300">Program</a>
+                <a href="#video-tour" class="text-gray-600 hover:text-blue-600 transition duration-300">Tur Video</a>
                 <a href="#ai-simulator" class="text-gray-600 hover:text-blue-600 transition duration-300">✨ AI Simulator</a>
                 <a href="#keunggulan" class="text-gray-600 hover:text-blue-600 transition duration-300">Keunggulan</a>
                 <a href="#testimoni" class="text-gray-600 hover:text-blue-600 transition duration-300">Testimoni</a>
-                <a href="#faq" class="text-gray-600 hover:text-blue-600 transition duration-300">FAQ</a>
             </div>
             <a href="#daftar" class="hidden md:block bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition duration-300 shadow">
                 Daftar Sekarang
             </a>
-            <!-- Mobile Menu Button (optional, for smaller screens) -->
             <button id="mobile-menu-btn" class="md:hidden text-gray-600 focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </nav>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
-            <a href="#program" class="block py-2 text-gray-600 hover:text-blue-600">Program Kami</a>
+            <a href="#program" class="block py-2 text-gray-600 hover:text-blue-600">Program</a>
+            <a href="#video-tour" class="block py-2 text-gray-600 hover:text-blue-600">Tur Video</a>
             <a href="#ai-simulator" class="block py-2 text-gray-600 hover:text-blue-600">✨ AI Simulator</a>
             <a href="#keunggulan" class="block py-2 text-gray-600 hover:text-blue-600">Keunggulan</a>
             <a href="#testimoni" class="block py-2 text-gray-600 hover:text-blue-600">Testimoni</a>
@@ -65,10 +64,8 @@
     </header>
 
     <main>
-        <!-- Section 1: Hero -->
         <section class="relative bg-white">
             <div class="container mx-auto px-6 py-24 md:py-32 flex flex-col lg:flex-row items-center">
-                <!-- Left Column: Text Content -->
                 <div class="lg:w-1/2 text-center lg:text-left">
                     <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
                         Wujudkan Mimpimu Menjadi <span class="text-blue-600">Dokter Unggulan</span>
@@ -85,7 +82,6 @@
                         </a>
                     </div>
                 </div>
-                <!-- Right Column: Image -->
                 <div class="lg:w-1/2 mt-12 lg:mt-0">
                     <img src="https://placehold.co/600x500/E0E7FF/3B82F6?text=Mahasiswa+Kedokteran+Sukses" 
                          alt="Mahasiswa kedokteran sedang belajar bersama" 
@@ -94,13 +90,11 @@
             </div>
         </section>
 
-        <!-- Section 2: The Problem -->
         <section class="py-20 bg-gray-50">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl font-bold text-gray-900">Merasa Kewalahan dengan Materi Kedokteran?</h2>
                 <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Anda tidak sendirian. Kami paham tantangan yang Anda hadapi setiap hari.</p>
                 <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Problem 1 -->
                     <div class="bg-white p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition duration-300">
                         <div class="bg-blue-100 text-blue-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
@@ -108,7 +102,6 @@
                         <h3 class="mt-6 text-xl font-bold">Materi Terlalu Banyak</h3>
                         <p class="mt-2 text-gray-600">Ribuan halaman anatomi, fisiologi, dan biokimia membuat Anda sulit fokus pada materi yang paling penting.</p>
                     </div>
-                    <!-- Problem 2 -->
                     <div class="bg-white p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition duration-300">
                         <div class="bg-blue-100 text-blue-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto">
                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
@@ -116,7 +109,6 @@
                         <h3 class="mt-6 text-xl font-bold">Jadwal Padat & Ujian</h3>
                         <p class="mt-2 text-gray-600">Sulit membagi waktu antara kuliah, praktikum, dan persiapan ujian blok yang datang silih berganti.</p>
                     </div>
-                    <!-- Problem 3 -->
                     <div class="bg-white p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition duration-300">
                         <div class="bg-blue-100 text-blue-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -128,7 +120,6 @@
             </div>
         </section>
 
-        <!-- Section 3: Programs -->
         <section id="program" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center">
@@ -136,7 +127,6 @@
                     <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Pilih program yang paling sesuai dengan kebutuhan akademis Anda saat ini.</p>
                 </div>
                 <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Program Card 1 -->
                     <div class="border border-gray-200 rounded-xl p-8 flex flex-col hover:shadow-xl hover:border-blue-500 transition duration-300">
                         <h3 class="text-2xl font-bold text-gray-900">Bimbingan Ujian Blok</h3>
                         <p class="mt-4 text-gray-600 flex-grow">Persiapan intensif untuk menghadapi ujian blok. Kami bedah materi-materi penting, latihan soal (CBT), dan simulasi OSCE.</p>
@@ -147,7 +137,6 @@
                         </ul>
                         <a href="https://drive.google.com/drive/folders/1w5g2Uvdjppzb5tYyOVECkaibi11JICCX" target="_blank" rel="noopener noreferrer" class="mt-8 bg-blue-100 text-blue-700 font-semibold w-full text-center py-3 rounded-lg hover:bg-blue-200 transition duration-300">Pilih Program</a>
                     </div>
-                    <!-- Program Card 2 -->
                     <div class="border-2 border-blue-600 rounded-xl p-8 flex flex-col shadow-2xl relative">
                         <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full absolute -top-4 right-6">Paling Populer</span>
                         <h3 class="text-2xl font-bold text-gray-900">Pendampingan Pre-Klinik</h3>
@@ -159,7 +148,6 @@
                         </ul>
                         <a href="https://drive.google.com/drive/folders/1w5g2Uvdjppzb5tYyOVECkaibi11JICCX" target="_blank" rel="noopener noreferrer" class="mt-8 bg-blue-600 text-white font-semibold w-full text-center py-3 rounded-lg hover:bg-blue-700 transition duration-300">Pilih Program</a>
                     </div>
-                    <!-- Program Card 3 -->
                     <div class="border border-gray-200 rounded-xl p-8 flex flex-col hover:shadow-xl hover:border-blue-500 transition duration-300">
                         <h3 class="text-2xl font-bold text-gray-900">Private Tutoring (1-on-1)</h3>
                         <p class="mt-4 text-gray-600 flex-grow">Sesi eksklusif dengan tutor pilihanmu. Jadwal fleksibel dan materi disesuaikan sepenuhnya dengan kebutuhan akademismu.</p>
@@ -174,8 +162,26 @@
             </div>
         </section>
         
-        <!-- Section 3.5: AI Case Simulator (Gemini-powered) -->
-        <section id="ai-simulator" class="py-20 bg-gray-50">
+        <section id="video-tour" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-gray-900">Lihat Metode Belajar Kami Beraksi</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Tonton video singkat ini untuk melihat bagaimana White Coat dapat membantu Anda memahami materi kedokteran yang kompleks dengan lebih mudah.</p>
+                <div class="mt-12 max-w-4xl mx-auto">
+                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-2xl">
+                        <iframe 
+                            src="https://www.youtube.com/embed/ganti-dengan-id-video-youtube-anda" 
+                            title="Video Tur White Coat" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen
+                            class="w-full h-full">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ai-simulator" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center">
                     <h2 class="text-3xl font-bold text-gray-900">✨ Coba AI Case Simulator Kami</h2>
@@ -196,32 +202,27 @@
                         </button>
                     </div>
                     
-                    <!-- Loading Spinner -->
                     <div id="loading-spinner" class="hidden text-center py-8">
                         <div class="spinner rounded-full h-12 w-12 border-4 border-blue-200 border-t-blue-600 mx-auto"></div>
                         <p class="mt-4 text-gray-600">AI sedang mempersiapkan kasus untuk Anda...</p>
                     </div>
 
-                    <!-- Case Study Output -->
                     <div id="case-output" class="mt-8 p-6 bg-blue-50 rounded-lg border-l-4 border-blue-500 hidden prose max-w-none">
-                        <!-- Content will be injected here by JS -->
-                    </div>
+                        </div>
                      <p class="mt-4 text-xs text-gray-500 text-center">
-                         *Fitur ini didukung oleh Gemini AI dan ditujukan untuk tujuan edukasi saja. Ini bukan merupakan saran medis.
-                       </p>
+                          *Fitur ini didukung oleh Gemini AI dan ditujukan untuk tujuan edukasi saja. Ini bukan merupakan saran medis.
+                        </p>
                 </div>
             </div>
         </section>
 
-        <!-- Section 4: Why Us / Keunggulan -->
-        <section id="keunggulan" class="py-20 bg-white">
+        <section id="keunggulan" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center">
                     <h2 class="text-3xl font-bold text-gray-900">Mengapa Memilih White Coat?</h2>
                     <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Kami bukan sekadar les biasa. Kami adalah partner belajar strategis Anda.</p>
                 </div>
                 <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Feature 1 -->
                     <div class="text-center p-4">
                         <div class="bg-blue-100 rounded-xl shadow-lg w-20 h-20 flex items-center justify-center mx-auto">
                             <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
@@ -229,7 +230,6 @@
                         <h3 class="mt-4 font-bold text-lg">Tutor Berpengalaman</h3>
                         <p class="mt-1 text-gray-600">Dibimbing oleh mahasiswa berprestasi & dokter muda.</p>
                     </div>
-                    <!-- Feature 2 -->
                     <div class="text-center p-4">
                         <div class="bg-blue-100 rounded-xl shadow-lg w-20 h-20 flex items-center justify-center mx-auto">
                            <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
@@ -237,7 +237,6 @@
                         <h3 class="mt-4 font-bold text-lg">Kurikulum Teruji</h3>
                         <p class="mt-1 text-gray-600">Fokus pada materi penting (high-yield information).</p>
                     </div>
-                    <!-- Feature 3 -->
                     <div class="text-center p-4">
                         <div class="bg-blue-100 rounded-xl shadow-lg w-20 h-20 flex items-center justify-center mx-auto">
                             <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
@@ -245,7 +244,6 @@
                         <h3 class="mt-4 font-bold text-lg">Kelompok Kecil</h3>
                         <p class="mt-1 text-gray-600">Maksimal 5-7 mahasiswa per kelompok, lebih fokus.</p>
                     </div>
-                    <!-- Feature 4 -->
                     <div class="text-center p-4">
                         <div class="bg-blue-100 rounded-xl shadow-lg w-20 h-20 flex items-center justify-center mx-auto">
                             <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4M4 7l8 5 8-5"></path></svg>
@@ -257,15 +255,13 @@
             </div>
         </section>
 
-        <!-- Section 5: Testimonials -->
-        <section id="testimoni" class="py-20 bg-gray-50">
+        <section id="testimoni" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center">
                     <h2 class="text-3xl font-bold text-gray-900">Apa Kata Mereka yang Telah Bergabung?</h2>
                     <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Kepercayaan Anda adalah prioritas utama kami.</p>
                 </div>
                 <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <!-- Testimonial 1 -->
                     <div class="bg-white p-8 rounded-xl border border-gray-200">
                         <p class="text-gray-700 italic">"Awalnya aku keteteran banget sama Anatomi. Setelah ikut bimbingan di White Coat, cara belajarku jadi lebih terarah. Tutornya sabar dan materi high-yield nya ngebantu banget pas ujian blok. Alhamdulillah lulus dengan nilai memuaskan!"</p>
                         <div class="mt-6 flex items-center">
@@ -276,7 +272,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Testimonial 2 -->
                     <div class="bg-white p-8 rounded-xl border border-gray-200">
                         <p class="text-gray-700 italic">"Private tutoringnya juara! Aku bisa tanya apa aja yang gak ngerti di kampus tanpa malu. Sangat recommended buat yang butuh pendalaman konsep sebelum OSCE. Tutornya asik dan sangat menguasai materi."</p>
                         <div class="mt-6 flex items-center">
@@ -291,32 +286,28 @@
             </div>
         </section>
 
-        <!-- Section 6: FAQ -->
-        <section id="faq" class="py-20 bg-white">
+        <section id="faq" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6 max-w-4xl">
                 <div class="text-center">
                     <h2 class="text-3xl font-bold text-gray-900">Pertanyaan yang Sering Diajukan</h2>
                     <p class="mt-4 text-lg text-gray-600">Punya pertanyaan lain? Hubungi kami!</p>
                 </div>
                 <div class="mt-12 space-y-4">
-                    <!-- FAQ Item 1 -->
-                    <details class="bg-gray-50 p-6 rounded-lg shadow-sm group">
+                    <details class="bg-white p-6 rounded-lg shadow-sm group">
                         <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">
                             Bagaimana sistem belajarnya?
                             <span class="transform group-open:-rotate-180 transition-transform duration-300">▲</span>
                         </summary>
                         <p class="mt-4 text-gray-600">Sesi bimbingan kami lakukan secara online melalui Zoom, dengan kelompok kecil (maksimal 7 orang) agar interaktif. Kami juga menyediakan rekaman sesi bagi yang berhalangan hadir.</p>
                     </details>
-                    <!-- FAQ Item 2 -->
-                    <details class="bg-gray-50 p-6 rounded-lg shadow-sm group">
+                    <details class="bg-white p-6 rounded-lg shadow-sm group">
                         <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">
                             Apakah ada jaminan kelulusan?
                              <span class="transform group-open:-rotate-180 transition-transform duration-300">▲</span>
                         </summary>
                         <p class="mt-4 text-gray-600">Meskipun kami tidak bisa memberikan jaminan kelulusan mutlak karena bergantung pada usaha individu, kurikulum dan metode kami dirancang untuk memaksimalkan peluang keberhasilan Anda. 95% alumni kami berhasil lulus ujian blok pada percobaan pertama.</p>
                     </details>
-                    <!-- FAQ Item 3 -->
-                    <details class="bg-gray-50 p-6 rounded-lg shadow-sm group">
+                    <details class="bg-white p-6 rounded-lg shadow-sm group">
                         <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">
                             Berapa biaya program bimbingannya?
                              <span class="transform group-open:-rotate-180 transition-transform duration-300">▲</span>
@@ -327,7 +318,6 @@
             </div>
         </section>
 
-        <!-- Section 7: Final CTA / Registration -->
         <section id="daftar" class="py-20 bg-blue-600">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl font-bold text-white">Daftar Konsultasi Gratis Sekarang!</h2>
@@ -335,8 +325,7 @@
                 <div class="mt-8 max-w-xl mx-auto">
                     <form id="registration-form" class="text-left">
                         <div id="form-message" class="hidden p-4 mb-4 text-sm rounded-lg" role="alert">
-                           <!-- Pesan sukses/error akan muncul di sini -->
-                        </div>
+                           </div>
                         <div class="space-y-4">
                             <div>
                                 <label for="nama" class="block mb-2 text-sm font-medium text-white">Nama Lengkap</label>
@@ -360,7 +349,6 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-gray-800 text-white">
         <div class="container mx-auto px-6 py-10">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -372,9 +360,9 @@
                     <h3 class="text-lg font-semibold">Tautan Cepat</h3>
                     <ul class="mt-4 space-y-2">
                         <li><a href="#program" class="text-gray-400 hover:text-white">Program</a></li>
+                        <li><a href="#video-tour" class="text-gray-400 hover:text-white">Tur Video</a></li>
                         <li><a href="#ai-simulator" class="text-gray-400 hover:text-white">AI Simulator</a></li>
                         <li><a href="#testimoni" class="text-gray-400 hover:text-white">Testimoni</a></li>
-                        <li><a href="#faq" class="text-gray-400 hover:text-white">FAQ</a></li>
                     </ul>
                 </div>
                 <div>
@@ -407,105 +395,86 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // --- Gemini API Integration for AI Case Simulator ---
-const generateBtn = document.getElementById('generate-case-btn');
-const topicSelect = document.getElementById('case-topic');
-const caseOutput = document.getElementById('case-output');
-const loadingSpinner = document.getElementById('loading-spinner');
+        // --- KODE JAVASCRIPT GEMINI YANG SUDAH DIPERBARUI ---
+        const generateBtn = document.getElementById('generate-case-btn');
+        const topicSelect = document.getElementById('case-topic');
+        const caseOutput = document.getElementById('case-output');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        
+        // URL proxy yang kita buat. Vercel/Netlify akan mengarahkannya ke file api/gemini.js
+        const proxyApiUrl = '/api/gemini'; 
 
-// URL proxy yang kita buat. Vercel akan secara otomatis mengarahkannya ke file api/gemini.js
-const proxyApiUrl = '/api/gemini'; 
+        generateBtn.addEventListener('click', async () => {
+            const selectedTopic = topicSelect.value;
+            loadingSpinner.classList.remove('hidden');
+            caseOutput.classList.add('hidden');
+            caseOutput.innerHTML = '';
+            generateBtn.disabled = true;
+            generateBtn.innerHTML = `<div class="spinner h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div> Memproses...`;
+            
+            const prompt = `Buatkan sebuah skenario kasus klinis (vignette) yang menantang untuk seorang mahasiswa kedokteran mengenai topik ${selectedTopic}. Formatnya harus sebagai berikut dalam Bahasa Indonesia: 1. **Presentasi Pasien:** Jelaskan usia, jenis kelamin, dan keluhan utama pasien. 2. **Riwayat Penyakit Sekarang:** Detailkan perkembangan gejala secara kronologis. 3. **Riwayat Penyakit Dahulu:** Sebutkan riwayat medis yang relevan (misal: hipertensi, diabetes) dan riwayat sosial (merokok, alkohol). 4. **Pemeriksaan Fisik:** Berikan temuan kunci dari pemeriksaan fisik (tanda-tanda vital, inspeksi, palpasi, auskultasi, dll.). 5. **Pertanyaan untuk Mahasiswa:** Akhiri dengan pertanyaan seperti 'Apa diagnosis banding utama Anda dan pemeriksaan penunjang apa yang akan Anda sarankan?' PENTING: JANGAN sebutkan diagnosis akhir dalam respons ini. Buatlah kasus ini realistis, informatif, dan gunakan terminologi medis yang sesuai.`;
+            
+            const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
 
-generateBtn.addEventListener('click', async () => {
-    const selectedTopic = topicSelect.value;
-    loadingSpinner.classList.remove('hidden');
-    caseOutput.classList.add('hidden');
-    caseOutput.innerHTML = '';
-    generateBtn.disabled = true;
-    generateBtn.innerHTML = `<div class="spinner h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div> Memproses...`;
-    
-    // Prompt tetap sama
-    const prompt = `Buatkan sebuah skenario kasus klinis (vignette) yang menantang untuk seorang mahasiswa kedokteran mengenai topik ${selectedTopic}. Formatnya harus sebagai berikut dalam Bahasa Indonesia: 1. **Presentasi Pasien:** Jelaskan usia, jenis kelamin, dan keluhan utama pasien. 2. **Riwayat Penyakit Sekarang:** Detailkan perkembangan gejala secara kronologis. 3. **Riwayat Penyakit Dahulu:** Sebutkan riwayat medis yang relevan (misal: hipertensi, diabetes) dan riwayat sosial (merokok, alkohol). 4. **Pemeriksaan Fisik:** Berikan temuan kunci dari pemeriksaan fisik (tanda-tanda vital, inspeksi, palpasi, auskultasi, dll.). 5. **Pertanyaan untuk Mahasiswa:** Akhiri dengan pertanyaan seperti 'Apa diagnosis banding utama Anda dan pemeriksaan penunjang apa yang akan Anda sarankan?' PENTING: JANGAN sebutkan diagnosis akhir dalam respons ini. Buatlah kasus ini realistis, informatif, dan gunakan terminologi medis yang sesuai.`;
-    
-    // Payload tetap sama
-    const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
+            try {
+                const response = await fetch(proxyApiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
 
-    try {
-        // Panggil proxy kita, bukan API Gemini langsung
-        const response = await fetch(proxyApiUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(payload) // Kirim payload ke proxy kita
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error('Error dari server proxy:', errorData);
+                    throw new Error(`Gagal memuat data dari server.`);
+                }
+                
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates[0]?.content?.parts?.[0]) {
+                    const rawText = result.candidates[0].content.parts[0].text;
+                    const formattedText = rawText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+                    caseOutput.innerHTML = formattedText;
+                    caseOutput.classList.remove('hidden');
+                } else {
+                    console.error('Unexpected API response structure:', result);
+                    throw new Error('Struktur respons API tidak valid.');
+                }
+            } catch (error) {
+                console.error('Error calling proxy API:', error);
+                caseOutput.innerHTML = `<p class="text-red-500">Gagal terhubung dengan AI. Periksa koneksi Anda dan coba lagi. Error: ${error.message}</p>`;
+                caseOutput.classList.remove('hidden');
+            } finally {
+                loadingSpinner.classList.add('hidden');
+                generateBtn.disabled = false;
+                generateBtn.textContent = 'Buat Kasus';
+            }
         });
 
-        if (!response.ok) {
-            const errorData = await response.json();
-            console.error('Error dari server proxy:', errorData);
-            throw new Error(`API request failed with status ${response.status}`);
-        }
-        
-        const result = await response.json();
-        
-        if (result.candidates && result.candidates[0]?.content?.parts?.[0]) {
-            const rawText = result.candidates[0].content.parts[0].text;
-            // Gunakan regex untuk mengganti markdown bold (**) dengan tag <strong>
-            // dan newline (\n) dengan tag <br> agar formatnya bagus di HTML.
-            const formattedText = rawText
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\n/g, '<br>');
-            caseOutput.innerHTML = formattedText;
-            caseOutput.classList.remove('hidden');
-        } else {
-            // Jika struktur respons dari Gemini tidak sesuai harapan
-            console.error('Unexpected API response structure:', result);
-            throw new Error('Struktur respons API tidak valid.');
-        }
-    } catch (error) {
-        console.error('Error calling proxy API:', error);
-        caseOutput.innerHTML = `<p class="text-red-500">Gagal terhubung dengan AI. Silakan coba lagi nanti. Error: ${error.message}</p>`;
-        caseOutput.classList.remove('hidden');
-    } finally {
-        loadingSpinner.classList.add('hidden');
-        generateBtn.disabled = false;
-        generateBtn.textContent = 'Buat Kasus';
-    }
-});
         // --- Google Sheets API Integration for Registration Form ---
         const form = document.getElementById('registration-form');
         const submitButton = document.getElementById('submit-button');
         const formMessage = document.getElementById('form-message');
 
-        // !!! PENTING: Ganti URL di bawah ini dengan URL Web App dari Google Apps Script Anda.
         const googleAppScriptUrl = 'https://script.google.com/macros/s/AKfycbxDmcD135Df2CrzMt7vGPR5Kc0WZMaUd6ipVKGf_4iRjot6EWfo6R5EYR05oNSeOmIp/exec';
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            // Tampilkan status loading
             submitButton.disabled = true;
             submitButton.innerHTML = `<div class="spinner h-5 w-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin mr-2"></div> Mengirim...`;
             formMessage.classList.add('hidden');
 
-            const formData = new FormData(form);
-            const data = {
-                nama: formData.get('nama'),
-                email: formData.get('email'),
-                whatsapp: formData.get('whatsapp'),
-            };
-
             try {
-                const response = await fetch(googleAppScriptUrl, {
+                // Menggunakan 'no-cors' mode tidak memungkinkan kita melihat status response,
+                // jadi kita langsung kirim ke Google Sheets dan asumsikan berhasil.
+                await fetch(googleAppScriptUrl, {
                     method: 'POST',
-                    mode: 'no-cors', // Diperlukan untuk Apps Script
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
+                    mode: 'no-cors', 
+                    headers: { 'Content-Type': 'application/json' },
+                    body: new FormData(form),
                 });
                 
-                // Karena mode 'no-cors', kita tidak bisa membaca respons. Kita asumsikan sukses.
                 formMessage.innerHTML = '<strong>Pendaftaran Berhasil!</strong> Tim kami akan segera menghubungi Anda.';
                 formMessage.className = 'p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-100';
                 formMessage.classList.remove('hidden');
@@ -517,12 +486,10 @@ generateBtn.addEventListener('click', async () => {
                 formMessage.className = 'p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-100';
                 formMessage.classList.remove('hidden');
             } finally {
-                // Kembalikan tombol ke keadaan semula
                 submitButton.disabled = false;
                 submitButton.textContent = 'Kirim Pendaftaran';
             }
         });
-
     </script>
 </body>
 </html>

@@ -451,45 +451,59 @@
             }
         });
 
-        // --- Google Sheets API Integration for Registration Form ---
-        const form = document.getElementById('registration-form');
-        const submitButton = document.getElementById('submit-button');
-        const formMessage = document.getElementById('form-message');
+       // --- Google Sheets API Integration for Registration Form ---
+const form = document.getElementById('registration-form');
+const submitButton = document.getElementById('submit-button');
+const formMessage = document.getElementById('form-message');
 
-        const googleAppScriptUrl = 'https://script.google.com/macros/s/AKfycbxDmcD135Df2CrzMt7vGPR5Kc0WZMaUd6ipVKGf_4iRjot6EWfo6R5EYR05oNSeOmIp/exec';
+// !!! PENTING: Ganti URL di bawah ini dengan URL Web App dari Google Apps Script Anda.
+const googleAppScriptUrl = 'PASTE_URL_BARU_ANDA_DI_SINI';
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            submitButton.disabled = true;
-            submitButton.innerHTML = `<div class="spinner h-5 w-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin mr-2"></div> Mengirim...`;
-            formMessage.classList.add('hidden');
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    submitButton.disabled = true;
+    submitButton.innerHTML = `<div class="spinner h-5 w-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin mr-2"></div> Mengirim...`;
+    formMessage.classList.add('hidden');
 
-            try {
-                // Menggunakan 'no-cors' mode tidak memungkinkan kita melihat status response,
-                // jadi kita langsung kirim ke Google Sheets dan asumsikan berhasil.
-                await fetch(googleAppScriptUrl, {
-                    method: 'POST',
-                    mode: 'no-cors', 
-                    headers: { 'Content-Type': 'application/json' },
-                    body: new FormData(form),
-                });
-                
-                formMessage.innerHTML = '<strong>Pendaftaran Berhasil!</strong> Tim kami akan segera menghubungi Anda.';
-                formMessage.className = 'p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-100';
-                formMessage.classList.remove('hidden');
-                form.reset();
+    // Ambil data dari form dan ubah ke format JSON
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
 
-            } catch (error) {
-                console.error('Error submitting to Google Sheets:', error);
-                formMessage.innerHTML = '<strong>Pendaftaran Gagal.</strong> Terjadi kesalahan. Silakan coba lagi nanti.';
-                formMessage.className = 'p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-100';
-                formMessage.classList.remove('hidden');
-            } finally {
-                submitButton.disabled = false;
-                submitButton.textContent = 'Kirim Pendaftaran';
-            }
+    try {
+        const response = await fetch(googleAppScriptUrl, {
+            method: 'POST',
+            // Gunakan 'cors' agar bisa menerima respons dari server
+            mode: 'cors', 
+            // Hapus header Content-Type, browser akan mengaturnya otomatis saat redirect
+            // dan Apps Script akan menanganinya
+            redirect: 'follow', 
+            body: JSON.stringify(data)
         });
+
+        // Cek apakah response dari server sukses
+        const result = await response.json();
+        
+        if (result.result === "success") {
+            formMessage.innerHTML = '<strong>Pendaftaran Berhasil!</strong> Tim kami akan segera menghubungi Anda.';
+            formMessage.className = 'p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-100';
+            formMessage.classList.remove('hidden');
+            form.reset();
+        } else {
+            // Tampilkan error jika ada masalah di Apps Script
+            throw new Error(result.error || 'Terjadi kesalahan di server.');
+        }
+
+    } catch (error) {
+        console.error('Error submitting to Google Sheets:', error);
+        formMessage.innerHTML = `<strong>Pendaftaran Gagal.</strong> Terjadi kesalahan: ${error.message}`;
+        formMessage.className = 'p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-100';
+        formMessage.classList.remove('hidden');
+    } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Kirim Pendaftaran';
+    }
+});
     </script>
 </body>
 </html>
